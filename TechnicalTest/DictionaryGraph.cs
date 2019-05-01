@@ -12,8 +12,8 @@ namespace TechnicalTest
     public class DictionaryGraph 
     {
         private List<string> _dictionary;
-        public int _wordLength;        
-        public IGraphSearch _graphSearch;
+        private readonly int _wordLength;        
+        private IGraphSearch _graphSearch;
 
         public List<Node> Graph { get; set; }
 
@@ -68,7 +68,7 @@ namespace TechnicalTest
         private List<Node> CreateGraph()
         {
             List<Node> completedGraph = new List<Node>();
-            _dictionary.Where(word => word.Length == _wordLength).Select(word => new Node(word)).ToList();
+            completedGraph = _dictionary.Where(word => word.Length == _wordLength).Select(word => new Node(word)).ToList();
 
             foreach (Node node in completedGraph)
             {
